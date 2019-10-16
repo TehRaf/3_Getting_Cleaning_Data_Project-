@@ -8,4 +8,8 @@ Project Goal:
 4) Analysis R Script
 
 Link to Items:
-1) tidy data set
+1. tidy data set https://github.com/TehRaf/3_Getting_Cleaning_Data_Project-/blob/master/final_data.txt
+2. git rep https://github.com/TehRaf/3_Getting_Cleaning_Data_Project-
+3. cookbook 
+4. R-script https://github.com/TehRaf/3_Getting_Cleaning_Data_Project-/blob/master/run_analysis.R
+
