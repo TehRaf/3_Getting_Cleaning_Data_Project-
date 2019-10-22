@@ -13,5 +13,58 @@ Link to Items:
 3. cookbook : https://github.com/TehRaf/3_Getting_Cleaning_Data_Project-/blob/master/Code%20Book
 4. R-script https://github.com/TehRaf/3_Getting_Cleaning_Data_Project-/blob/master/run_analysis.R
 
+# Key Steps
+Download the dataset
+Read the Read.ME file to understand the data set
 
-T
+Creating the "Train" dataset:
+  Extracted the "X_train", "y_train", "Features", under the folder called data
+  Loaded  the X_train data and updated the column names with the second column of the Feature file 
+  Added a column to the X_Train data that included the Subject ID to the Train data set.
+  Updated and saved the X_Train as "trainup" that now has updated coulmn headers and additional subject ID column.
+
+Creating the "Test" dataset:
+  Extracrted the "X_test", "y_test", under the folder called data
+  Loaded  the Y_test data and updated the column names with the second column of the Feature file
+  Added a column to the X_test data that included the Subject ID to the y_test data set.
+  Updated and saved the X_Test as "testup" that now has updated coulmn headers and additional subject ID column.
+
+Combining the train and test datasets
+  Combined both " testup" and "trainup" by keeping the columns the same and adding rows to the data table.
+  The table increase in rows ( but the columns remained the same)
+  "data.all "  data set of  10299 rows, 563 column is created.
+
+New Data Set with selected Mean and Standard deviation values
+  From the "data.all" dataset, columns of subject, activity are selected alongwith all the cloumns that have mean and std in the column names
+  these columns are saved in a new data set called  "updated.data" 
+  The number of rows remian the same i.e. 10299 rows but number of columns have reduced to 88 as only columns full filling the criteria are saved.
+  
+Changing the numeric acitivity lables to readbale english labels
+  Extract the activity lables for the data zip file and save it to data folder
+  load the label file to R as "actlabels"
+  update the values of the activity column of updated.data  with second column of actlabels.
+  the numerics are replaced by the corresponding factor/ names in the lables
+  
+ Improving the labels of the data set with descriptive variable names to improve readability
+  Extract all the column lables into a separate vector named "descriptive_names"
+  Substite the following to make the labels readable
+      Removed ()
+      susbstituted " preceeding t" to TimeDomain
+      susbstituted "preceeding f", "FrequencyDomain
+      susbstituted "Acc" to  "Accelerometer"
+      susbstituted"Gyro"to "Gyroscope"
+      susbstituted "Mag" to "Magnitude"
+      susbstituted"-mean-" to "_Mean_"
+      susbstituted ("-std-"to "_StandardDeviation_"
+      susbstituted"_std" to "_StandardDeviation_"
+      susbstituted "BodyBody" to  "Body"
+      susbstituted "-" to "_"
+ 
+  Updated the columnnames of "update.data" with the new vector that is easier to read.
+
+Group and Mean variables for subjects and activity
+    Dplyr package was loaded
+    Data was grouped by subject and activity so that each each activity is assigned to a its unique subject
+    mean of all the column variables was calcualted
+    the new data set was saved in a data table called "final_data"
+    The file is uploaded and avialable here : https://github.com/TehRaf/3_Getting_Cleaning_Data_Project-/blob/master/final_data.txt
